@@ -1,0 +1,4 @@
+# clipboard==0.0.4
+opencv-python==4.9.0.80
+Pillow==10.1.0
+pyperclip==1.8.2
