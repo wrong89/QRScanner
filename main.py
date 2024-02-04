@@ -1,4 +1,7 @@
+from time import sleep
+
 fileName = 'image.png'
+delay = 5
 
 def main():
     from pyperclip import copy
@@ -12,6 +15,7 @@ def checkClipboard():
     from PIL import ImageGrab
 
     while True:
+        sleep(delay)
         im = ImageGrab.grabclipboard()
 
         if im:
@@ -38,6 +42,7 @@ def deleteFile(path):
 
 if __name__ == '__main__':
     while True:
+        sleep(delay)
         try:
             main()
         except:
