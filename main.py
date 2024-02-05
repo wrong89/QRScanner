@@ -8,8 +8,9 @@ def main():
 
     path = checkClipboard()
     decoded = decodeQR(img=path)
-    copy(text=decoded[0])
-    deleteFile(path=fileName)
+    if decoded:
+        copy(text=decoded[0])
+        deleteFile(path=fileName)
 
 def checkClipboard():
     from PIL import ImageGrab
@@ -20,7 +21,6 @@ def checkClipboard():
 
         if im:
             im.save(fileName, 'PNG')
-            print('out while loop')
             return f'./{fileName}'
 
 def decodeQR(img):
@@ -34,7 +34,7 @@ def decodeQR(img):
     if retval:
         return decoded_info
     else:
-        return ['QR code is not defined']
+        return None
 
 def deleteFile(path):
     from os import remove
